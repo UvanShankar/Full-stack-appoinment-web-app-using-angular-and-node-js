@@ -1,0 +1,57 @@
+<mat-spinner *ngIf='loading'></mat-spinner>
+<mat-toolbar *ngIf='sucessMsg'color='accent'>{{sucessMsg}}</mat-toolbar>
+<mat-toolbar *ngIf='errorMsg'color='warn'>{{errorMsg}}</mat-toolbar>
+<div *ngIf='!loading && !loading'>
+    <!--
+    <table mat-table [dataSource]="appointments" class="mat-elevation-z8">
+        <ng-container matColumnDef="appointmentDate">
+            <th mat-header-cell *matHeaderCellDef>Appointment Date</th>
+            <tr mat-cell *matCellDef="let appointment">{{appointment.appoinmentDate}}</tr>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <tr mat-cell *matCellDef="let appointment">{{appointment.name}}</tr>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <tr mat-cell *matCellDef="let appointment">{{appointment.email}}</tr>
+        </ng-container>
+        <ng-container matColumnDef="cancel">
+            <th mat-header-cell *matHeaderCellDef>Cancel</th>
+            <tr mat-cell *matCellDef="let appointment"><button (click)="cancelAppointments(appointment._id)" mat-raised-button color="warn">Cancel</button></tr>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let appointments;columns:columns"></tr> 
+    </table>
+-->
+<table mat-table [dataSource]="appointments" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="appointmentDate">
+      <th mat-header-cell *matHeaderCellDef>Appointment Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.appoinmentDate }} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="cancel">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element"> <button (click)="cancelAppointments(element._id)" mat-raised-button color="warn">Cancel</button> </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
